@@ -3,6 +3,8 @@ package com.nftbe.services;
 import com.nftbe.models.Nft;
 import com.nftbe.repositories.INftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,5 +36,12 @@ public class NftService implements IBaseService<Nft> {
     @Override
     public boolean delete(int id) {
         return false;
+    }
+
+    @Override
+    public List<Nft> getByPage(int page) {
+        int pageSize = 10;
+        Pageable pageable = PageRequest.of(page, pageSize);
+        return nftRepository.findAll(pageable).getContent();
     }
 }

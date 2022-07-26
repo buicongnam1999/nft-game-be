@@ -36,6 +36,11 @@ public class WalletService implements IBaseService<Wallet> {
         return false;
     }
 
+    @Override
+    public List<Wallet> getByPage(int page) {
+        return null;
+    }
+
     public boolean rechargeWallet(double token, String wallet) {
 
         return true;
