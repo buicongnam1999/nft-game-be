@@ -1,42 +1,23 @@
-package com.nftbe.models;
+package com.nftbe.models.DTO;
 
-import com.nftbe.models.DTO.UserDTO;
 import lombok.Data;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "tblUser")
 @Data
-public class User {
-    @Id
-    @Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class UserDTO {
     private int id;
-    @Column(name = "user_name")
     private String userName;
-    @Column(name = "user_pass")
     private String userPass;
-    @Column(name = "user_lastname")
     private String userLastName;
-    @Column(name = "user_firstname")
     private String userFirstName;
-    @Column(name = "user_thumbnail")
     private String userThumbnail;
-    @Column(name = "user_phone")
     private String userPhone;
-    @Column(name = "user_email")
     private String userEmail;
-    @Column(name = "user_type")
     private int userType;
-    @Column(name = "user_verify")
     private int userVerify;
-    @Column(name = "user_block")
     private int userBlock;
-    @Column(name = "wallet_id")
     private int walletId;
 
-    public User(Builder builder) {
+    private UserDTO(Builder builder) {
         this.id = builder.id;
         this.userName = builder.userName;
         this.userPass = builder.userPass;
@@ -49,10 +30,6 @@ public class User {
         this.userVerify = builder.userVerify;
         this.userBlock = builder.userBlock;
         this.walletId = builder.walletId;
-    }
-
-    public User() {
-
     }
 
     public static class Builder {
@@ -129,8 +106,8 @@ public class User {
             return this;
         }
 
-        public User build() {
-            return new User(this);
+        public UserDTO build() {
+            return new UserDTO(this);
         }
     }
 }
