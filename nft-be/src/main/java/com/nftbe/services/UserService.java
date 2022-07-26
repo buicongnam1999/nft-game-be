@@ -1,15 +1,19 @@
 package com.nftbe.services;
 
 import com.nftbe.models.User;
+import com.nftbe.repositories.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserService implements IBaseService<User> {
+    @Autowired
+    private IUserRepository userRepository;
     @Override
     public List<User> getAll() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
@@ -30,5 +34,10 @@ public class UserService implements IBaseService<User> {
     @Override
     public boolean delete(int id) {
         return false;
+    }
+
+    @Override
+    public List<User> getByPage(int page) {
+        return null;
     }
 }

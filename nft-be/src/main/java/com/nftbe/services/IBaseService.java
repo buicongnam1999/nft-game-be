@@ -8,4 +8,5 @@ public interface IBaseService<T> {
     T update(T t);
     T create(T t);
     boolean delete(int id);
+    List<T> getByPage(int page);
 }
