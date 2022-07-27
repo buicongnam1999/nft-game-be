@@ -4,6 +4,7 @@ import com.nftbe.models.DTO.UserDTO;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tblUser")
@@ -14,26 +15,37 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(name = "user_name")
+    @NotNull
     private String userName;
     @Column(name = "user_pass")
+    @NotNull
     private String userPass;
     @Column(name = "user_lastname")
+    @NotNull
     private String userLastName;
     @Column(name = "user_firstname")
+    @NotNull
     private String userFirstName;
     @Column(name = "user_thumbnail")
+    @NotNull
     private String userThumbnail;
     @Column(name = "user_phone")
+    @NotNull
     private String userPhone;
     @Column(name = "user_email")
+    @NotNull
     private String userEmail;
     @Column(name = "user_type")
+    @NotNull
     private int userType;
     @Column(name = "user_verify")
+    @NotNull
     private int userVerify;
     @Column(name = "user_block")
+    @NotNull
     private int userBlock;
     @Column(name = "wallet_id")
+    @NotNull
     private int walletId;
 
     public User(Builder builder) {

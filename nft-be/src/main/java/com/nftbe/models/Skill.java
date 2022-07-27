@@ -1,6 +1,7 @@
 package com.nftbe.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tblSkill")
@@ -10,14 +11,19 @@ public class Skill {
     @Column(name = "skill_id")
     private int id;
     @Column(name = "skill_thumbnail")
+    @NotNull
     private String skillThumbnail;
     @Column(name = "skill_level")
+    @NotNull
     private int skillLevel;
     @Column(name = "skill_dame")
+    @NotNull
     private int skillDame;
     @Column(name = "skill_def")
+    @NotNull
     private int skillDef;
     @Column(name = "skill_note")
+    @NotNull
     private String skillNote;
 
     public int getId() {

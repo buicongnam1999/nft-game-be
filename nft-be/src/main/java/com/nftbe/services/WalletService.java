@@ -13,7 +13,7 @@ public class WalletService implements IBaseService<Wallet> {
     private IWalletRepository walletRepository;
     @Override
     public List<Wallet> getAll() {
-        return walletRepository.findAll();
+        return null;
     }
 
     @Override

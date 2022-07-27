@@ -2,6 +2,7 @@ package com.nftbe.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -12,26 +13,37 @@ public class Nft {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(name = "nft_type")
+    @NotNull
     private int nftType;
     @Column(name = "nft_price")
+    @NotNull
     private double nftPrice;
     @Column(name = "nft_date_create")
+    @NotNull
     private String nftDateCreate;
     @Column(name = "nft_thumbnail")
+    @NotNull
     private String nftThumbnail;
     @Column(name = "nft_life")
+    @NotNull
     private int nftLife;
     @Column(name = "nft_attack")
+    @NotNull
     private int nftAttack;
     @Column(name = "nft_def")
+    @NotNull
     private int nftDef;
     @Column(name = "nft_speed")
+    @NotNull
     private int nftSpeed;
     @Column(name = "wallet_id")
+    @NotNull
     private int walletId;
     @Column(name = "wallet_old_id")
+    @NotNull
     private int walletOldId;
     @Column(name = "skill_id")
+    @NotNull
     private int skillId;
 
     private Nft(Builder builder) {
