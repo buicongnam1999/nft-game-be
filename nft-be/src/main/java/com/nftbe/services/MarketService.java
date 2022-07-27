@@ -1,33 +1,34 @@
 package com.nftbe.services;
 
-import com.nftbe.models.User;
-import com.nftbe.repositories.IUserRepository;
+import com.nftbe.models.Market;
+import com.nftbe.repositories.IMarketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService implements IBaseService<User> {
+public class MarketService implements IBaseService<Market> {
     @Autowired
-    private IUserRepository userRepository;
+    private IMarketRepository marketRepository;
+
     @Override
-    public List<User> getAll() {
+    public List<Market> getAll() {
+        return marketRepository.findAll();
+    }
+
+    @Override
+    public Market findById(int id) {
         return null;
     }
 
     @Override
-    public User findById(int id) {
+    public Market update(Market market) {
         return null;
     }
 
     @Override
-    public User update(User user) {
-        return null;
-    }
-
-    @Override
-    public User create(User user) {
+    public Market create(Market market) {
         return null;
     }
 
@@ -37,7 +38,7 @@ public class UserService implements IBaseService<User> {
     }
 
     @Override
-    public List<User> getByPage(int page) {
+    public List<Market> getByPage(int page) {
         return null;
     }
 }

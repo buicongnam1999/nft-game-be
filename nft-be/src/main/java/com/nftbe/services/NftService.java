@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class NftService implements IBaseService<Nft> {
@@ -15,7 +16,7 @@ public class NftService implements IBaseService<Nft> {
     private INftRepository nftRepository;
     @Override
     public List<Nft> getAll() {
-        return nftRepository.findAll();
+        return null;
     }
 
     @Override

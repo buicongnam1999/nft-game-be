@@ -3,6 +3,7 @@ package com.nftbe.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tblBill")
@@ -13,14 +14,19 @@ public class Bill {
     @Column(name = "bill_id")
     private int id;
     @Column(name = "bill_date")
+    @NotNull
     private String date;
     @Column(name = "wallet_id")
+    @NotNull
     private int walletId;
     @Column(name = "wallet_old_id")
+    @NotNull
     private int walletOldId;
     @Column(name = "nft_id")
+    @NotNull
     private int nftId;
     @Column(name = "bill_price")
+    @NotNull
     private long price;
 
     private Bill(Builder builder) {
