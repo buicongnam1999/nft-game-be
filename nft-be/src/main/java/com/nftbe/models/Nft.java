@@ -36,6 +36,12 @@ public class Nft {
     @Column(name = "nft_speed")
     @NotNull
     private int nftSpeed;
+    @Column(name = "nft_rarity")
+    @NotNull
+    private int nftRarity;
+    @Column(name = "nft_age")
+    @NotNull
+    private int nftAge;
     @Column(name = "wallet_id")
     @NotNull
     private int walletId;

@@ -10,9 +10,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "tblMarket")
 public class Market {
     @Id
-    @Column(name = "market_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
     @Column(name = "nft_id")
     @NotNull
     private int nftId;
@@ -27,7 +24,6 @@ public class Market {
     private Nft nft;
 
     public Market(Builder builder) {
-        this.id = builder.id;;
         this.nftId = builder.nftId;;
         this.marketDate = builder.marketDate;;
         this.nftPrice = builder.nftPrice;
@@ -38,15 +34,9 @@ public class Market {
     }
 
     public static class Builder {
-        private int id;
         private int nftId;
         private String marketDate;
         private double nftPrice;
-
-        public Builder id(int id) {
-            this.id = id;
-            return this;
-        }
 
         public Builder nftId(int nftId) {
             this.nftId = nftId;
