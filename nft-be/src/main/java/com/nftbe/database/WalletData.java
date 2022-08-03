@@ -13,15 +13,15 @@ public class WalletData extends BaseData {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-                if (walletRepository.count() == 0) {
-                    Wallet wallet = new Wallet.Builder()
-                            .walletAddress("0xb6053f546E578716c13211af04672e116Dc07F8a")
-                            .walletToken(100.5)
-                            .build();
-                    logger.debug(marker,
-                            "Insert data: ",
-                            walletRepository.save(wallet));
-                }
+//                if (walletRepository.count() == 0) {
+//                    Wallet wallet = new Wallet.Builder()
+//                            .walletAddress("0xb6053f546E578716c13211af04672e116Dc07F8a")
+//                            .walletToken(100.5)
+//                            .build();
+//                    logger.debug(marker,
+//                            "Insert data: ",
+//                            walletRepository.save(wallet));
+//                }
             }
         };
     }

@@ -13,7 +13,7 @@ public class UserService implements IBaseService<User> {
     private IUserRepository userRepository;
     @Override
     public List<User> getAll() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override

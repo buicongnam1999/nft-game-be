@@ -3,9 +3,12 @@ package com.nftbe.services;
 import com.nftbe.models.Market;
 import com.nftbe.repositories.IMarketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MarketService implements IBaseService<Market> {
@@ -19,6 +22,10 @@ public class MarketService implements IBaseService<Market> {
 
     @Override
     public Market findById(int id) {
+        if (id > 0) {
+            Optional<Market> market = marketRepository.findById(id);
+            return market.orElse(null);
+        }
         return null;
     }
 
@@ -39,6 +46,12 @@ public class MarketService implements IBaseService<Market> {
 
     @Override
     public List<Market> getByPage(int page) {
-        return null;
+        int pageSize = 8;
+        Pageable pageable = PageRequest.of(page, pageSize);
+        return marketRepository.findAll(pageable).getContent();
+    }
+
+    public long getCountSale() {
+        return marketRepository.count();
     }
 }
