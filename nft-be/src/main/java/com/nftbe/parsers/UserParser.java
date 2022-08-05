@@ -53,4 +53,26 @@ public class UserParser extends BaseParser<User, UserDTO> {
             throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
         }
     }
+
+    @Override
+    public UserDTO convertObject(User user) {
+        try {
+            return new UserDTO.Builder()
+                    .id(user.getId())
+                    .userName(user.getUserName())
+                    .userPass(user.getUserPass())
+                    .userLastName(user.getUserLastName())
+                    .userFirstName(user.getUserFirstName())
+                    .userThumbnail(user.getUserThumbnail())
+                    .userPhone(user.getUserPhone())
+                    .userEmail(user.getUserEmail())
+                    .userType(user.getUserType())
+                    .userVerify(user.getUserVerify())
+                    .userBlock(user.getUserBlock())
+                    .walletId(user.getWalletId())
+                    .build();
+        } catch (Exception exception) {
+            throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
+        }
+    }
 }

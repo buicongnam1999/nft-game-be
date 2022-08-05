@@ -25,6 +25,8 @@ public class NftParser extends BaseParser<Nft, NftDTO> {
                     .walletId(nftDTO.getWalletId())
                     .walletOldId(nftDTO.getWalletOldId())
                     .skillId(nftDTO.getSkillId())
+                    .nftRarity(nftDTO.getNftRarity())
+                    .nftAge(nftDTO.getNftAge())
                     .build();
         } catch (Exception exception) {
             throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
@@ -48,9 +50,37 @@ public class NftParser extends BaseParser<Nft, NftDTO> {
                     .walletId(getInt(nftJson, "wallet_id"))
                     .walletOldId(getInt(nftJson, "wallet_old_id"))
                     .skillId(getInt(nftJson, "skill_id"))
+                    .nftRarity(getInt(nftJson, "nft_rarity"))
+                    .nftAge(getInt(nftJson, "nft_age"))
                     .build();
         } catch (Exception exception) {
             throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
         }
     }
+
+    @Override
+    public NftDTO convertObject(Nft nft) {
+        try {
+            return new NftDTO.Builder()
+                    .id(nft.getId())
+                    .nftType(nft.getNftType())
+                    .nftPrice(nft.getNftPrice())
+                    .nftDateCreate(nft.getNftDateCreate())
+                    .nftThumbnail(nft.getNftThumbnail())
+                    .nftLife(nft.getNftLife())
+                    .nftAttack(nft.getNftAttack())
+                    .nftDef(nft.getNftDef())
+                    .nftSpeed(nft.getNftSpeed())
+                    .walletId(nft.getWalletId())
+                    .walletOldId(nft.getWalletOldId())
+                    .skillId(nft.getSkillId())
+                    .nftRarity(nft.getNftRarity())
+                    .nftAge(nft.getNftAge())
+                    .build();
+        } catch (Exception exception) {
+            throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
+        }
+    }
+
+
 }

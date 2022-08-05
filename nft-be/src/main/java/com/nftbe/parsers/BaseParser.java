@@ -9,6 +9,7 @@ import static java.lang.Boolean.FALSE;
 public abstract class BaseParser<T, U> {
     public abstract T convertJson(U u);
     public abstract T convertJson(String json);
+    public abstract U convertObject(T t);
 
     protected static String getString(JSONObject jsonObject, String key) throws JSONException {
         return jsonObject.has(key) ? jsonObject.getString(key) : Strings.EMPTY;

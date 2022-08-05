@@ -42,4 +42,11 @@ public class BillParser extends BaseParser<Bill, BillDTO> {
             throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
         }
     }
+
+    @Override
+    public BillDTO convertObject(Bill bill) {
+        return null;
+    }
+
+
 }

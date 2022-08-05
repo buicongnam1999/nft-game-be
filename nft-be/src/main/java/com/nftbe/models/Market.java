@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 public class Market {
     @Id
     @Column(name = "nft_id")
-    @NotNull
     private int nftId;
     @Column(name = "market_date")
     @NotNull
@@ -19,7 +18,7 @@ public class Market {
     @Column(name = "nft_price")
     @NotNull
     private double nftPrice;
-    @ManyToOne()
+    @OneToOne()
     @JoinColumn(name = "nft_id", referencedColumnName = "nft_id", insertable = false, updatable = false)
     private Nft nft;
 
@@ -31,6 +30,22 @@ public class Market {
 
     public Market() {
 
+    }
+
+    public int compareTo(Market market, int type) {
+        if (type == 1) {
+            return marketDate.compareTo(market.getMarketDate());
+        } else if (type == 2) {
+            return market.getMarketDate().compareTo(marketDate);
+        } else if (type == 3) {
+            Double obj1 = new Double(nftPrice);
+            Double obj2 = new Double(market.getNftPrice());
+            return obj1.compareTo(obj2);
+        } else {
+            Double obj1 = new Double(market.getNftPrice());
+            Double obj2 = new Double(nftPrice);
+            return obj1.compareTo(obj2);
+        }
     }
 
     public static class Builder {
