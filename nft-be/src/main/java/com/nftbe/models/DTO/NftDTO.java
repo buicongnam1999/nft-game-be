@@ -16,6 +16,8 @@ public class NftDTO {
     private int walletId;
     private int walletOldId;
     private int skillId;
+    private int nftRarity;
+    private int nftAge;
 
     private NftDTO(Builder builder) {
         this.id = builder.id;
@@ -30,6 +32,8 @@ public class NftDTO {
         this.walletId = builder.walletId;
         this.walletOldId = builder.walletOldId;
         this.skillId = builder.skillId;
+        this.nftRarity = builder.nftRarity;
+        this.nftAge = builder.nftAge;
     }
 
     public static class Builder {
@@ -45,6 +49,8 @@ public class NftDTO {
         private int walletId;
         private int walletOldId;
         private int skillId;
+        private int nftRarity;
+        private int nftAge;
 
         public Builder id(int id) {
             this.id = id;
@@ -103,6 +109,16 @@ public class NftDTO {
 
         public Builder skillId(int skillId) {
             this.skillId = skillId;
+            return this;
+        }
+
+        public Builder nftRarity(int nftRarity) {
+            this.nftRarity = nftRarity;
+            return this;
+        }
+
+        public Builder nftAge(int nftAge) {
+            this.nftAge = nftAge;
             return this;
         }
 

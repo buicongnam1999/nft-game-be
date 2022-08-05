@@ -1,10 +1,13 @@
 package com.nftbe.models;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tblSkill")
+@Data
 public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,51 +29,60 @@ public class Skill {
     @NotNull
     private String skillNote;
 
-    public int getId() {
-        return id;
+    public Skill(Builder builder) {
+        this.id = builder.id;
+        this.skillThumbnail = builder.skillThumbnail;
+        this.skillLevel = builder.skillLevel;
+        this.skillDame = builder.skillDame;
+        this.skillDef = builder.skillDef;
+        this.skillNote = builder.skillNote;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Skill() {
+
     }
 
-    public String getSkillThumbnail() {
-        return skillThumbnail;
-    }
+    public static class Builder {
+        public int id;
+        public String skillThumbnail;
+        public int skillLevel;
+        public int skillDame;
+        public int skillDef;
+        public String skillNote;
 
-    public void setSkillThumbnail(String skillThumbnail) {
-        this.skillThumbnail = skillThumbnail;
-    }
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
 
-    public int getSkillLevel() {
-        return skillLevel;
-    }
+        public Builder skillThumbnail(String skillThumbnail) {
+            this.skillThumbnail = skillThumbnail;
+            return this;
+        }
 
-    public void setSkillLevel(int skillLevel) {
-        this.skillLevel = skillLevel;
-    }
+        public Builder skillLevel(int skillLevel) {
+            this.skillLevel = skillLevel;
+            return this;
+        }
 
-    public int getSkillDame() {
-        return skillDame;
-    }
+        public Builder skillDame(int skillDame) {
+            this.skillDame = skillDame;
+            return this;
+        }
 
-    public void setSkillDame(int skillDame) {
-        this.skillDame = skillDame;
-    }
+        public Builder skillDef(int skillDef) {
+            this.skillDef = skillDef;
+            return this;
+        }
 
-    public int getSkillDef() {
-        return skillDef;
-    }
+        public Builder skillNote(String skillNote) {
+            this.skillNote = skillNote;
+            return this;
+        }
 
-    public void setSkillDef(int skillDef) {
-        this.skillDef = skillDef;
-    }
+        public Skill build() {
+            return new Skill(this);
+        }
 
-    public String getSkillNote() {
-        return skillNote;
-    }
-
-    public void setSkillNote(String skillNote) {
-        this.skillNote = skillNote;
     }
 }

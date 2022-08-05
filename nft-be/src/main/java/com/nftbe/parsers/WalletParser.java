@@ -35,4 +35,18 @@ public class WalletParser extends BaseParser<Wallet, WalletDTO> {
             throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
         }
     }
+
+    @Override
+    public WalletDTO convertObject(Wallet wallet) {
+        try {
+            return new WalletDTO.Builder()
+                    .id(wallet.getId())
+                    .walletAddress(wallet.getWalletAddress())
+                    .walletToken(wallet.getWalletToken())
+                    .build();
+        } catch (Exception exception) {
+            throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, ERROR_FORMAT);
+        }
+    }
+
 }

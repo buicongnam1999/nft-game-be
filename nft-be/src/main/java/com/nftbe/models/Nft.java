@@ -51,6 +51,9 @@ public class Nft {
     @Column(name = "skill_id")
     @NotNull
     private int skillId;
+    @OneToOne
+    @JoinColumn(name = "skill_id", referencedColumnName = "skill_id", insertable = false, updatable = false)
+    private Skill skill;
 
     private Nft(Builder builder) {
         this.id = builder.id;
@@ -65,6 +68,8 @@ public class Nft {
         this.walletId = builder.walletId;
         this.walletOldId = builder.walletOldId;
         this.skillId = builder.skillId;
+        this.nftRarity = builder.nftRarity;
+        this.nftAge = builder.nftAge;
     }
 
     public Nft() {
@@ -84,6 +89,9 @@ public class Nft {
         private int walletId;
         private int walletOldId;
         private int skillId;
+        private int nftRarity;
+        private int nftAge;
+        private Skill skill;
 
         public Builder id(int id) {
             this.id = id;
@@ -142,6 +150,21 @@ public class Nft {
 
         public Builder skillId(int skillId) {
             this.skillId = skillId;
+            return this;
+        }
+
+        public Builder nftRarity(int nftRarity) {
+            this.nftRarity = nftRarity;
+            return this;
+        }
+
+        public Builder nftAge(int nftAge) {
+            this.nftAge = nftAge;
+            return this;
+        }
+
+        public Builder skill(Skill skill) {
+            this.skill = skill;
             return this;
         }
 

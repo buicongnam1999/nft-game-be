@@ -1,6 +1,7 @@
 package com.nftbe.controllers;
 
 import com.nftbe.interfaces.IBaseController;
+import com.nftbe.models.DTO.MarketDTO;
 import com.nftbe.models.Market;
 import com.nftbe.models.response.ResponseObject;
 import com.nftbe.services.MarketService;
@@ -17,7 +18,7 @@ import static com.nftbe.utils.Constants.DATA_NOT_FOUND;
 @Controller
 @RequestMapping(path = "api/v1/marketplace/nft-sale")
 @CrossOrigin(origins = "http://localhost:3000")
-public class MarketController implements IBaseController<Market> {
+public class MarketController implements IBaseController<MarketDTO> {
     @Autowired
     private MarketService marketService;
 
@@ -31,6 +32,21 @@ public class MarketController implements IBaseController<Market> {
     @Override
     public ResponseEntity<ResponseObject> getByPage(@PathVariable int page) {
         return new ResponseEntity<>(new ResponseObject(true, "", marketService.getByPage(page)), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<ResponseObject> update(MarketDTO marketDTO) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ResponseObject> create(MarketDTO marketDTO) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ResponseObject> delete(MarketDTO marketDTO) {
+        return null;
     }
 
     @GetMapping(value = "count")
@@ -49,4 +65,13 @@ public class MarketController implements IBaseController<Market> {
         return new ResponseEntity<>(new ResponseObject(true, "", market), HttpStatus.OK);
     }
 
+    @PostMapping(value = "findByArray")
+    public ResponseEntity<ResponseObject> findByArray(@RequestBody String json) {
+        return new ResponseEntity<>(new ResponseObject(true, "", marketService.getCountSale()), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "sortPrice/{type}")
+    public ResponseEntity<ResponseObject> sortPrice(@PathVariable int type) {
+        return new ResponseEntity<>(new ResponseObject(true, "", marketService.sortPrice(type)), HttpStatus.OK);
+    }
 }

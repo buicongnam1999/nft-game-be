@@ -1,5 +1,6 @@
 package com.nftbe.services;
 
+import com.nftbe.models.DTO.MarketDTO;
 import com.nftbe.models.Market;
 import com.nftbe.repositories.IMarketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class MarketService implements IBaseService<Market> {
@@ -53,5 +53,20 @@ public class MarketService implements IBaseService<Market> {
 
     public long getCountSale() {
         return marketRepository.count();
+    }
+
+    public List<Market> findByArray(String json) {
+
+        return null;
+    }
+
+    public List<Market> sortPrice(int type) {
+        List<Market> markets = getAll();
+        if (type > 0) {
+            Collections.sort(markets, (o1, o2) -> o1.getMarketDate().compareTo(o2.getMarketDate()));
+            return markets;
+        }
+
+        return null;
     }
 }

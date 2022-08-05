@@ -1,5 +1,6 @@
 package com.nftbe.models.DTO;
 
+import com.nftbe.models.Nft;
 import lombok.Data;
 
 @Data
@@ -8,6 +9,7 @@ public class MarketDTO {
     private int nftId;
     private String marketDate;
     private double nftPrice;
+    private Nft nft;
 
     public MarketDTO(Builder builder) {
         this.id = builder.id;;
@@ -21,6 +23,7 @@ public class MarketDTO {
         private int nftId;
         private String marketDate;
         private double nftPrice;
+        private Nft nft;
 
         public Builder id(int id) {
             this.id = id;
@@ -39,6 +42,11 @@ public class MarketDTO {
 
         public Builder nftPrice(double nftPrice) {
             this.nftPrice = nftPrice;
+            return this;
+        }
+
+        public Builder Nft(Nft nft) {
+            this.nft = nft;
             return this;
         }
 
