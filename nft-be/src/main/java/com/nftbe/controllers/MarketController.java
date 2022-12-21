@@ -17,11 +17,12 @@ import static com.nftbe.utils.Constants.DATA_NOT_FOUND;
 
 @Controller
 @RequestMapping(path = "api/v1/marketplace/nft-sale")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class MarketController implements IBaseController<MarketDTO> {
     @Autowired
     private MarketService marketService;
 
+    @CrossOrigin
     @GetMapping(value = "")
     @Override
     public ResponseEntity<ResponseObject> getAll() {

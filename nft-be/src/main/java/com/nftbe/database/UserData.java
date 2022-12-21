@@ -14,27 +14,27 @@ public class UserData extends BaseData {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-//                if (userRepository.count() == 0) {
-//                    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//                    String password = bCryptPasswordEncoder.encode("nambc1234 0");
-//                    User user = new User.Builder()
-//                            .userName("nambc")
-//                            .userPass(password)
-//                            .userLastName("Bui Cong")
-//                            .userFirstName("Nam")
-//                            .userThumbnail("")
-//                            .userPhone("0387230643")
-//                            .userEmail("nambc@gmail.com")
-//                            .userType(1)
-//                            .userVerify(1)
-//                            .userBlock(0)
-//                            .walletId(19)
-//                            .build();
-//
-//                    logger.debug(marker,
-//                            "Insert data: ",
-//                            userRepository.save(user));
-//                }
+                if (userRepository.count() == 1) {
+                    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+                    String password = bCryptPasswordEncoder.encode("nambc1234 0");
+                    User user = new User.Builder()
+                            .userName("samnv99")
+                            .userPass(password)
+                            .userLastName("Bui Cong")
+                            .userFirstName("Nam")
+                            .userThumbnail("")
+                            .userPhone("0387230643")
+                            .userEmail("nambc@gmail.com")
+                            .userType(1)
+                            .userVerify(1)
+                            .userBlock(0)
+                            .walletId(19)
+                            .build();
+
+                    logger.debug(marker,
+                            "Insert data: ",
+                            userRepository.save(user));
+                }
             }
         };
     }
